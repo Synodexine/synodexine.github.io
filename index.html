@@ -82,11 +82,11 @@
 
         .section {
             margin-top: 25px;
-            font-size: 11pt;
+            font-size: 10pt;
         }
 
         .section-header {
-            font-size: 13pt;
+            font-size: 12pt;
             font-weight: bold;
         }
 
@@ -180,7 +180,7 @@
                 gap: 2px;
             }
             
-            .points-list li {
+            .points-list.spaced-list li {
                 text-align: left;
             }
 
@@ -219,7 +219,7 @@
                     <div class="section-header">PROFESSIONAL SUMMARY</div>
                     <div class="line-thin"></div>
                     <div class="lang-ru" style="margin-top: 10px;">
-                        <strong>Python Backend Developer</strong> с опытом работы 3 года, специализируюсь на разработке и проектировании высокопроизводительных систем на Django и FastAPI. Имею практический опыт работы с монолитами и микросервисами, в оптимизации тяжёлых запросов, автоматизации сложных бизнес-процессов (ERP/АСУП). Самостоятельно закрываю задачи от проектирования архитектуры БД до реализации сложных RESTful API.
+                        <strong>Python Backend Developer</strong> с опытом работы более 3-х лет, специализируюсь на разработке и проектировании высокопроизводительных систем на Django и FastAPI. Имею практический опыт работы с монолитами и микросервисами, в оптимизации тяжёлых запросов, автоматизации сложных бизнес-процессов (ERP/АСУП). Самостоятельно закрываю задачи от проектирования архитектуры БД до реализации сложных RESTful API.
                     </div>
                     <div class="lang-en" style="margin-top: 10px;">
                         <strong>Python Backend Developer</strong> with 3 years of experience, specializing in the development and design of high-performance systems using Django and FastAPI. I have hands-on experience working with monolithic applications and microservices, optimizing heavy queries, and automating complex business processes (ERP). I independently handle tasks ranging from database architecture design to the implementation of complex RESTful APIs.
@@ -237,7 +237,7 @@
                     <div class="section-header lang-en">SKILLS</div>
                     <div class="line-thin"></div>
                     <ul class="points-list" style="margin-top: 8px;">
-                        <li><strong>Backend:</strong> Python (Django/DRF, FastAPI), Asyncio, Celery, NATS, WebSocket</li>
+                        <li><strong>Backend:</strong> Python (Django/DRF, FastAPI), Asyncio, Celery, NATS, RESTful API, WebSocket</li>
                         <li><strong>Database & ORM:</strong> PostgreSQL, MongoDB, Redis, Tortoise ORM, Pony ORM</li>
                         <li class="lang-ru"><strong>DevOps & Инфраструктура:</strong> Docker, Git, Linux, Nginx, Gunicorn, Uvicorn, RabbitMQ, S3 (Minio)</li>
                         <li class="lang-en"><strong>DevOps & Infrastructure:</strong> Docker, Git, Linux, Nginx, Gunicorn, Uvicorn, RabbitMQ, S3 (Minio)</li>
@@ -261,13 +261,85 @@
                     <div class="job-location lang-ru">Администрива, Гомель, Беларусь</div>
                     <div class="job-location lang-en">Administriva, Gomel, Belarus</div>
                     <ul class="points-list spaced-list">
-                        <li class="lang-ru"><strong>Спроектировал и разработал АСУП (FastAPI и MongoDB).</strong> Комплексная автоматизированная система управления производством. Управление заказами, сопровождение изделий документацией, контроль прохождения изделий по производственным линиям. Спроектировал и внедрил отказоустойчивую систему аутентификации на базе OAuth2.0, разработал систему синхронизации данных со сторонними сервисами (1С, Tflex Docs).</li>
-                        <li class="lang-ru"><strong>Сервис генерации документов (FastAPI).</strong> Спроектировал и разработал с нуля универсальный API-сервис для генерации документов (xlsx, docx, pdf), который используется на двух заводах, а также на торговой площадке для автоматизации документооборота.</li>
-                        <li class="lang-ru"><strong>Оптимизация и рефакторинг в системе управления производством (Django).</strong> Провел рефакторинг архитектуры приложения и оптимизировал загрузку больших файлов, сократив время с 90 минут до 5-7 минут. Внедрил исполнение фоновых задач с динамическими индикаторами прогресса в Django Admin.</li>
-
-                        <li class="lang-en"><strong>Designed and developed MES (FastAPI и MongoDB).</strong> A comprehensive manufacturing execution system. Order management, product documentation tracking, and monitoring of product flow through production lines. Designed and implemented a fault-tolerant authentication system based on OAuth 2.0, and developed a data synchronization system with third-party services (1C, Tflex Docs).</li>
-                        <li class="lang-en"><strong>Document Generation Service (FastAPI).</strong> Designed and developed a versatile API service for generating documents (xlsx, docx, pdf) from scratch. It is used at two manufacturing plants as well as on a marketplace to automate document workflows.</li>
-                        <li class="lang-en"><strong>Optimization and refactoring in manufacturing execution system (Django).</strong> I refactored the application architecture and optimized the upload of large files, reducing the time from 90 minutes to 5–7 minutes. I implemented background tasks with dynamic progress indicators in Django Admin.</li>
+                        <li class="lang-ru">
+                            <strong>Спроектировал с нуля архитектуру системы управления производством</strong> (FastAPI и MongoDB, внедрил OAuth2.0). Реализовал интеграцию с 1С для загрузки заказов. В результате была обеспечена отказоустойчивая обработка сотен тысяч спецификаций.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Внедрил расширенный трейсинг событий.</strong> Это сократило время локализации инцидентов от нескольких дней до пары минут.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Разработал Policy-based State Machine.</strong> Спроектировал механизм управления жизненным циклом заказов. Устранил хардкод, логика переходов стала предсказуемой, сократив время тестирования на 30%.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Оптимизировал сервисную архитектуру с Dependency Injection.</strong> Внедрил инверсию зависимостей (kink), обеспечил слабую связность между бизнес-компонентами системы и упростил написание unit-тестов.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Разработал ядро системы финансового и складского учета.</strong> Внедрил модули поступления/реализации ТМЦ и мультивалютные кассовые ордера, спроектировал генерацию отчетности. Оцифровал документооборот, радикально снизил объем ручного ввода для пользователей.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Оцифровал бухгалтерский учет.</strong> Перенес бизнес-логику расчета из Google Sheets в Odoo (XML views, JS). Написал кастомные модули, сэкономил десятки человеко-часов.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Провел глубокий архитектурный рефакторинг монолита (Django).</strong> Вынес логику генерации заданий в масштабируемые ООП-классы, снизил техдолг и ускоренил time-to-market в 1.5 раза.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Ускорил импорт тяжелых данных в 12 раз (Celery, Redis).</strong> Перевел time-consuming операции в асинхронные фоновые задачи. Снизил время обработки с 2–3 часов до 5–10 минут (прирост скорости >90%).
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Разработал единый интеграционный API-шлюз (FastAPI, Pydantic, MSSQL).</strong> Объединил потоки данных из 1С, T-FLEX DOCs и внешних API. Настроил валидацию ответов, тем самым свел к минимуму ошибки рассинхронизации данных.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Реализовал мобильное рабочее место мастера цеха.</strong> Спроектировал адаптивный интерфейс (htmx, tailwind, flowbite, js) для удаленного доступа к приложению Django со смартфона. Мастера получили возможность управлять производством без привязки к ПК.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Сервис генерации документов.</strong> Разработал универсальный API-сервис генерации документов (XLSX, DOCX, PDF) на базе FastAPI. Единый стандарт документооборота внедрен на двух промышленных заводах и торговой площадке.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Выстроил инфраструктуру и процесс развертывания (Docker, Nginx).</strong> Контейнеризировал бэкенд, фронтенд и Telegram-ботов. Настроил проксирование, межсервисное взаимодействие и firewall.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Менторство.</strong> Менторил 2-х младших разработчиков. Выполнял декомпозицию бизнес-требований, ставил задачи и проводил код-ревью. Вывел одного из них за 2 месяца на самостоятельное закрытие продуктовых задач по ТЗ.
+                        </li>
+                        
+                        <li class="lang-en">
+                            <strong>Designed and developed MES</strong> (FastAPI, MongoDB, OAuth2.0). Developed a robust integration with 1C ERP for automated order ingestion, ensuring fault-tolerant processing 100k+ of product specifications.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Implemented advanced event tracing.</strong> Reduced incident localization and troubleshooting time from several days to just a few minutes.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Developed a Policy-based State Machine</strong> to manage the order lifecycle. Eliminated hardcoded conditional logic, making state transitions predictable and reducing business logic testing time by 30%.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Optimized architecture using Dependency Injection.</strong> Implemented Inversion of Control (kink), ensuring loose coupling between components and streamlining unit testing.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Developed the core financial and inventory accounting system.</strong> Built modules for inventory management (receipts/sales) and multi-currency cash orders. Designed automated financial reporting, reducing manual data entry.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Digitized accounting operations.</strong> Migrated complex calculation logic from Google Sheets to Odoo ERP (XML views, JS). Developed custom modules from scratch, saving dozens of man-hours.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Deep architectural refactoring of a Django monolith.</strong> Extracted task-generation logic into scalable, object-oriented classes, reducing technical debt and accelerating time-to-market by 1.5x.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Accelerated heavy data imports by 10x (Celery, Redis).</strong> Offloaded time-consuming file parsing into asynchronous background tasks, slashing processing time from 2–3 hours to 5–10 minutes (a 90%+ performance gain).
+                        </li>
+                        <li class="lang-en">
+                            <strong>Developed a centralized API Gateway (FastAPI, Pydantic, MSSQL).</strong> Consolidated data streams from 1C ERP, T-FLEX DOCs, and external APIs with strict response validation, minimizing data desynchronization issues.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Built a mobile workstation for shop foreman.</strong> Designed a responsive, mobile-first UI (HTMX, Tailwind CSS, Flowbite, JS) connected to a Django backend, enabling production management directly from the factory floor.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Implemented a universal Document Generation API Service.</strong> Built a high-performance microservice (FastAPI) to generate XLSX, DOCX, and PDF files, establishing a unified document standard deployed across two industrial plants and a commercial marketplace.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Established the deployment infrastructure and workflow (Docker, Nginx).</strong> Containerized the backend, frontend, and Telegram bots. Configured proxying, secure inter-service communication, and firewall security policies.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Mentoring.</strong> Mentored two junior engineers, handled business requirement decomposition, task assignment, and code reviews. Successfully brought one team member to fully independent feature delivery within 2 months.
+                        </li>
                     </ul>
                     
                     <div class="job-header" style="margin-top: 25px;">
@@ -285,13 +357,31 @@
                     <div class="job-location lang-ru">Администрива, Гомель, Беларусь</div>
                     <div class="job-location lang-en">Administriva, Gomel, Belarus</div>
                     <ul class="points-list spaced-list">
-                        <li class="lang-ru"><strong>Разработка и поддержка микросервисов</strong> (Django, DRF, FastAPI). Участвовал в разработке и поддержке сервисов для проекта с торговой площадкой.</li>
-                        <li class="lang-ru"><strong>Telegram-боты.</strong> Разрабатывал и поддерживал Telegram-ботов для автоматизации внутренних процессов.</li>
-                        <li class="lang-ru">Успешно совмещал работу с получением образования.</li>
+                        <li class="lang-ru">
+                            <strong>Разработал иерархическую систему ролей SubClient</strong> (Django, DRF). Спроектировал алгоритм расчета цен для дочерних аккаунтов на основе наследования правил "родителя" и скрытых наценок площадки.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Создал кастомный HTTP-брокер</strong> для асинхронного взаимодействия микросервисов. Обеспечил надежный и отказоустойчивый обмен сообщениями в распределенной среде.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Спроектировал логистический модуль расчета веса заказов.</strong> Автоматизировал тарификацию стоимости доставки на основе объемно-весовых характеристик товаров.
+                        </li>
+                        <li class="lang-ru">
+                            <strong>Автоматизировал сбор баг-репортов через Telegram-бота.</strong> Написал для обработки тикетов с поддержкой фото/видео, что сократило время реакции техподдержки на инциденты.
+                        </li>
 
-                        <li class="lang-en"><strong>Microservices development and maintainance</strong> (Django, DRF, FastAPI). Participated in the development and support of services for a project with an e-commerce platform.</li>
-                        <li class="lang-en"><strong>Telegram-bots.</strong> Developed and maintained Telegram bots to automate internal processes.</li>
-                        <li class="lang-en">Successfully combined work with education.</li>
+                        <li class="lang-en">
+                            <strong>Developed a hierarchical user role system (SubClient)</strong> (Django, DRF). Designed a price calculation algorithm for child accounts based on parent rule inheritance and hidden marketplace markups.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Built a custom HTTP message broker</strong> for asynchronous microservice communication, ensuring reliable messaging across a distributed environment.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Designed a logistics module for order weight calculation.</strong> Automated shipping cost pricing based on the volumetric and weight of goods.
+                        </li>
+                        <li class="lang-en">
+                            <strong>Automated bug report collection via a Telegram bot.</strong> Developed a backend service to process support tickets with photos/videos, significantly reducing incident response time.
+                        </li>
                     </ul>
                 </div>
                 
